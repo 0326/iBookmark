@@ -53,7 +53,8 @@ function renderBookmarks($ctr,dict) {
       dict[key].forEach(function(item) {
         tpl += '<li data-id="'+item.id+'" data-parentId="'+item.parentId+'" data-index="'+item.index
             + '" data-title="'+ item.title +'" data-url="'+item.url+'"'
-            +'><i class="J_BookmarkEdit"></i><a target="_blank" href="'+item.url+'" alt="'+item.url+'">'
+            +'><i class="J_BookmarkEdit" style="background-image:url(chrome://favicon/'
+            +item.url+')"></i><a target="_blank" href="'+item.url+'" alt="'+item.url+'">'
             +item.title+'</a></li>'
       })
       tpl += '<li class="J_BookmarkNew bookmark-new" data-parentId="'+ dict[key][0].parentId

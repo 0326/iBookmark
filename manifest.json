@@ -19,6 +19,8 @@
     "options_page": "options.html",
     "permissions": [
         "bookmarks",
+        "http://*/",
+        "chrome://favicon/",
         "cookies",
         "history",
         "tabs"

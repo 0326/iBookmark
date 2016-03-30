@@ -17,3 +17,9 @@ Chrome extension for manage bookmarks 最佳书签管理插件
 - 支持历史记录
 - 支持插件配置功能，可配置主题，配置是否隐藏某些分类下的书签
 - 页面视觉，目前仅实现功能，毫无设计感
+
+
+## 开发相关
+官方文档： https://developer.chrome.com/extensions
+
+图灵中文教程： http://www.ituring.com.cn/article/65987
