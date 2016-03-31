@@ -1,6 +1,8 @@
 # iBookmark
 Chrome extension for manage bookmarks 最佳书签管理插件
 
+(Wiki使用说明)[https://github.com/0326/iBookmark/wiki]
+
 ## 已完成功能
 - 所有书签分组展示
 - 在当前分组新增书签
