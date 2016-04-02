@@ -4,13 +4,107 @@ export default class Bookmark {
     let self = this
     self.bookmarkDict = {}
 
+    self.registerHotBookmark() 
+    self.registerSearchBar()
+    chrome.bookmarks.getRecent(8,function(list){
+      self.renderBookmarks($('#J_BookmarkRecent'), {'最新添加':list})  
+    })
+    
     chrome.bookmarks.getTree(function (tree) {
       self.recursiveTree(tree[0],'')
-      self.renderBookmarks($('#J_BookmarkCtr'),self.bookmarkDict)
+      self.renderBookmarks($('#J_BookmarkCtr'),self.bookmarkDict,true)
       self.bindEvent()
     })
+    
   }
-
+  
+  
+  registerSearchBar(){
+    let that = this
+    let inputPause = false
+    let $searchBar = $('#J_SearchBookmark')
+    let $searchResultList = $('#J_BookmarkSearchList')
+    $searchBar.on('input', function(params) {
+      if(inputPause){
+        return
+      }
+      
+      inputPause = true
+      
+      setTimeout(function (params) {
+        let val = $searchBar.val()
+        if(val){
+          renderSearchBookmark(val)
+        } else {
+          $searchResultList.hide()
+        }
+        inputPause = false
+      },1000)      
+    })  
+    
+    $('#J_SearchClose').on('click', function(){
+      $searchResultList.hide()
+    })
+    
+    function renderSearchBookmark(val){
+      chrome.bookmarks.search(val, function(list){
+        console.log(list)
+        that.renderBookmarks($searchResultList,{'搜索结果':list})
+        $searchResultList.show()    
+      })
+    }
+  }
+  
+  // 实现最热书签排行榜
+  registerHotBookmark(){
+    let that = this
+    let CStorage = chrome.storage.local
+    $('.bookmark-ctr').on('click','li', function(e){
+    //  e.preventDefault()
+    if(e.target.href){
+      let bkid = e.currentTarget.dataset.id.toString()
+      CStorage.get(bkid,function(obj){
+        let num = obj[bkid]
+        let saveObj = {}
+        
+        saveObj[bkid] = 1
+        if(num){
+          saveObj[bkid] = num+1
+        }
+        CStorage.set(saveObj)
+      })
+    }
+    })
+    
+    CStorage.get(null, function(obj){
+      let objArr = []   
+      let idList = []  
+      
+      // obj=>arr
+      for(let i in obj){
+        if(/^\d+$/.test(i)) {
+          objArr.push({
+            id:i,
+            num:obj[i]
+          })
+        }
+      }
+      
+      // 过滤出点击num最大的前8个数据
+      objArr.sort(function(a,b){
+        return b.num - a.num
+      })
+      .slice(0,8)
+      .forEach(function(item){
+        idList.push(item.id)
+      })
+      
+      chrome.bookmarks.get(idList,function(list){
+        that.renderBookmarks($('#J_BookmarkHot'),{'最常使用':list})
+      })
+    })
+  }
+  
   // 遍历收藏夹，将叶子节点的父节点作为分类名归类
   recursiveTree(dad,dadName,self){
     let that = this
@@ -29,13 +123,13 @@ export default class Bookmark {
 
     } else if(that.bookmarkDict[dadName]){
       that.bookmarkDict[dadName].push(dad)
-    } else {
+    } else if(dadName){
       that.bookmarkDict[dadName] = dad ? [dad] : self
     }
   }
 
   // 渲染收藏夹列表
-  renderBookmarks($ctr,dict) {
+  renderBookmarks($ctr,dict,hasNew) {
     let tpl = ''
     for(let key in dict){
       tpl += '<section><h2>' + key + '</h2><ul class="clearfix">'
@@ -44,17 +138,25 @@ export default class Bookmark {
           tpl += '<li data-id="'+item.id+'" data-parentId="'+item.parentId+'" data-index="'+item.index
               + '" data-title="'+ item.title +'" data-url="'+item.url+'"'
               +'><i class="J_BookmarkEdit" style="background-image:url(chrome://favicon/'
-              +item.url+')"></i><a target="_blank" href="'+item.url+'" alt="'+item.url+'">'
+              +item.url+')"></i><a target="_blank" class="bm-item" href="'+item.url+'" alt="'+item.url+'">'
               +item.title+'</a></li>'
         })
-        tpl += '<li class="J_BookmarkNew bookmark-new" data-parentId="'+ dict[key][0].parentId
-            +'" >添加新网址</li></ul></section>'
-      } else {
+        
+        if(hasNew){
+         tpl += '<li class="J_BookmarkNew bookmark-new" data-parentId="'+ dict[key][0].parentId
+            +'" >添加新网址</li></ul></section>' 
+        } else {
+          tpl += '</ul></section>'
+        }
+        
+      } else if(hasNew){
         // 该分类下无数据，那么在该分类下建立的页面的parentId就是该分类本身的id
         tpl += '<li class="J_BookmarkNew bookmark-new" data-parentId="'+ dict[key].id
             +'" >添加新网址</li></ul></section>'
+      } else {
+        tpl += '</ul></section>'
       }
-
+      
     }
     $ctr.html(tpl)
   }
@@ -148,4 +250,6 @@ export default class Bookmark {
       $('#J_AddBookmarkPop').find('input[name=url]').val('')
     }
   }
+  
+  
 }

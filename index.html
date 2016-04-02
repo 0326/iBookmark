@@ -7,8 +7,40 @@
 </head>
 
 <body>
+  <header class="fix-header">
+    <ul class="clearfix">
+      <li>
+        插件设置
+      </li>
+      <li>
+        树形管理
+      </li>
+      <li>
+        历史记录
+      </li>
+      <li class="search-bar">
+        <span>搜索书签</span>
+        <input type="text" id="J_SearchBookmark"></input>
+        <span id="J_SearchClose">X</span>
+      </li>
+      
+    </ul>
+  </header>
+  
+  <div id="J_BookmarkSearchList" class="bookmark-ctr">
+    <!--搜索标签结果列表-->
+  </div>
+  
+  <div id="J_BookmarkHot" class="bookmark-ctr">
+    <!--最常使用-->
+  </div>
+  
+  <div id="J_BookmarkRecent" class="bookmark-ctr">
+    <!--最新添加-->
+  </div>
+  
   <div id="J_BookmarkCtr" class="bookmark-ctr">
-    <div class="loading">载入中……</div>
+    <!--书签列表-->
   </div>
 
   <div id="J_AddBookmarkPop" class="add-bookmark-pop">

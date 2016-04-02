@@ -1,6 +1,8 @@
 html,body{
   width: 800px;
   height: 600px;
+  margin: 0;
+  padding: 0;
   font-family: STHeiti,'微软雅黑',Arial,sans-serif;
 }
 
@@ -8,6 +10,35 @@ html,body{
 
 .show{
   display: block !important;
+}
+
+.fix-header{
+  position: fixed;
+  top: 0;
+  width:100%;
+  background:rgba(255,255,255,0.9);
+  ul{
+    margin: 0;
+    padding: 0;
+    height: 24px;
+    line-height: 24px;
+  }
+  li{
+    float: left;
+    width: 120px;
+    list-style: none;
+  }
+  .search-bar{
+    width:240px;
+  }
+  
+  #J_SearchBookmark{
+    outline: none;
+  }
+}
+
+#J_BookmarkHot,#J_BookmarkSearchList{
+  margin-top: 40px;
 }
 
 .bookmark-ctr{
@@ -29,7 +60,7 @@ html,body{
     padding: 2px 5px 2px 20px;
     margin-bottom: 5px;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 17px;
     cursor: pointer;
     overflow: hidden;
 

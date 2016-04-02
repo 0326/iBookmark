@@ -21,7 +21,7 @@
         "bookmarks",
         "http://*/",
         "chrome://favicon/",
-        "cookies",
+        "storage",
         "history",
         "tabs"
     ]
