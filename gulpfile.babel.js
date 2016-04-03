@@ -21,13 +21,17 @@ gulp.task('scripts',() => {
     .bundle()
     .pipe(source("index.js"))
     .pipe(gulp.dest("./build/js"))
-    // .pipe(rename({
-    //   'suffix':'-min'
-    // }))
-    // .pipe(uglify())
-    // .pipe(gulp.dest('./build/js'))
+    
 })
 
+gulp.task('build',() => {
+  gulp.src('./build/js/index.js')
+        .pipe(rename({
+          'suffix':'-min'
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('./build/js'))
+})
 
 gulp.task('css',() => {
     gulp.src('css/*.less')
@@ -46,7 +50,10 @@ gulp.task('img',() => {
         .pipe(gulp.dest('./build/img'))
 })
 
+
+
 gulp.task('default',() => {
     gulp.watch('css/*.less', ['css'])
     gulp.watch('js/*.js', ['scripts'])
+    gulp.watch('img/*.png', ['img'])
 })

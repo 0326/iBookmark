@@ -3,27 +3,17 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="build/css/index.css" charset="utf-8">
+  <link rel="stylesheet" href="build/css/index-min.css" charset="utf-8">
 </head>
 
 <body>
   <header class="fix-header">
     <ul class="clearfix">
-      <li>
-        插件设置
-      </li>
-      <li>
-        树形管理
-      </li>
-      <li>
-        历史记录
-      </li>
       <li class="search-bar">
-        <span>搜索书签</span>
-        <input type="text" id="J_SearchBookmark"></input>
-        <span id="J_SearchClose">X</span>
+        <i class="icon icon-search"></i>
+        <input type="text" id="J_SearchBookmark" placeholder="search..."></input>
+        <i id="J_SearchClose" class="icon icon-close"></i>
       </li>
-      
     </ul>
   </header>
   
@@ -45,17 +35,17 @@
 
   <div id="J_AddBookmarkPop" class="add-bookmark-pop">
     <div class="wrapper">
-      <input type="text" name="title" value="" placeholder="网站标题" autocomplete="off">
-      <input type="text" name="url" value="" placeholder="网站地址" autocomplete="off">
-      <input type="button" name="name" value="添加" class="J_SubmitAddBookmark">
-      <input type="button" name="name" value="修改" class="J_UpdateAddBookmark">
-      <input type="button" name="name" value="删除" class="J_DeleteAddBookmark">
-      <button type="button" name="button" class="J_CancelAddBookmark">取消</button>
+      <input type="text" name="title" value="" placeholder="title" autocomplete="off">
+      <input type="text" name="url" value="" placeholder="url link" autocomplete="off">
+      <input type="button" name="name" value="Add" class="J_SubmitAddBookmark">
+      <input type="button" name="name" value="Update" class="J_UpdateAddBookmark">
+      <input type="button" name="name" value="Delete" class="J_DeleteAddBookmark">
+      <button type="button" name="button" class="J_CancelAddBookmark">Cancel</button>
       <p class="tips"></p>
     </div>
   </div>
   <script src="lib/zepto.min.js"></script>
-  <script src="build/js/index.js"></script>
+  <script src="build/js/index-min.js"></script>
 </body>
 
 </html>

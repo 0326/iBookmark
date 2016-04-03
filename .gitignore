@@ -1,7 +1,9 @@
 .DS_Store
 .vscode
 .idea
+.zip
 
 dist/
 build/
 node_modules/
+zip/

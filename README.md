@@ -1,5 +1,5 @@
 # iBookmark
-Chrome extension for manage bookmarks 最佳书签管理插件
+Chrome extension for manage bookmarks 打造Chrome最佳书签管理插件
 
 (Wiki使用说明)[https://github.com/0326/iBookmark/wiki]
 

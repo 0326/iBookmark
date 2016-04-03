@@ -1,23 +1,48 @@
 
 export default class Bookmark {
   constructor () {
-    let self = this
-    self.bookmarkDict = {}
+    let that = this
+    
+    that.bookmarkDict = {}
 
-    self.registerHotBookmark() 
-    self.registerSearchBar()
+    that.initI18n()    
+    that.registerHotBookmark() 
+    that.registerSearchBar()
+    
     chrome.bookmarks.getRecent(8,function(list){
-      self.renderBookmarks($('#J_BookmarkRecent'), {'最新添加':list})  
+      let obj = {}
+      obj[that.i18n.txtTitleNewest] = list
+      that.renderBookmarks($('#J_BookmarkRecent'),obj)  
     })
     
     chrome.bookmarks.getTree(function (tree) {
-      self.recursiveTree(tree[0],'')
-      self.renderBookmarks($('#J_BookmarkCtr'),self.bookmarkDict,true)
-      self.bindEvent()
+      that.recursiveTree(tree[0],'')
+      that.renderBookmarks($('#J_BookmarkCtr'),that.bookmarkDict,true)
+      that.bindEvent()
     })
-    
   }
   
+  initI18n(){
+    let i18n = chrome.i18n
+    this.i18n = {
+      errTitle: i18n.getMessage('extErrTitle'),
+      errUrl: i18n.getMessage('extErrUrl'),
+      btnCancel: i18n.getMessage('extBtnCancel'),
+      btnDelete: i18n.getMessage('extBtnDelete'),
+      btnUpdate: i18n.getMessage('extBtnUpdate'),
+      btnSubmit: i18n.getMessage('extBtnSubmit'),
+      txtNewSite: i18n.getMessage('extTxtNewSite'),
+      txtsearchResult: i18n.getMessage('extTitleSearchResult'),
+      txtTitleNewest: i18n.getMessage('extTitleNewest'),
+      txtTitleSearchResult: i18n.getMessage('extTitleSearchResult'),
+      txtTitleViews: i18n.getMessage('extTitleViews')
+    }
+    
+    $('.J_UpdateAddBookmark').val(this.i18n.btnUpdate)
+    $('.J_DeleteAddBookmark').val(this.i18n.btnDelete)
+    $('.J_SubmitAddBookmark').val(this.i18n.btnSubmit)
+    $('.J_CancelAddBookmark').text(this.i18n.btnCancel)
+  }
   
   registerSearchBar(){
     let that = this
@@ -48,8 +73,9 @@ export default class Bookmark {
     
     function renderSearchBookmark(val){
       chrome.bookmarks.search(val, function(list){
-        console.log(list)
-        that.renderBookmarks($searchResultList,{'搜索结果':list})
+        let obj = {}
+        obj[that.i18n.txtTitleSearchResult] = list
+        that.renderBookmarks($searchResultList,obj)
         $searchResultList.show()    
       })
     }
@@ -100,7 +126,9 @@ export default class Bookmark {
       })
       
       chrome.bookmarks.get(idList,function(list){
-        that.renderBookmarks($('#J_BookmarkHot'),{'最常使用':list})
+        let obj = {}
+        obj[that.i18n.txtTitleViews] = list
+        that.renderBookmarks($('#J_BookmarkHot'),obj)
       })
     })
   }
@@ -131,6 +159,7 @@ export default class Bookmark {
   // 渲染收藏夹列表
   renderBookmarks($ctr,dict,hasNew) {
     let tpl = ''
+    let txtNewSite = this.i18n.txtNewSite
     for(let key in dict){
       tpl += '<section><h2>' + key + '</h2><ul class="clearfix">'
       if(dict[key].length){
@@ -144,7 +173,7 @@ export default class Bookmark {
         
         if(hasNew){
          tpl += '<li class="J_BookmarkNew bookmark-new" data-parentId="'+ dict[key][0].parentId
-            +'" >添加新网址</li></ul></section>' 
+            +'" >'+ txtNewSite +'</li></ul></section>' 
         } else {
           tpl += '</ul></section>'
         }
@@ -152,7 +181,7 @@ export default class Bookmark {
       } else if(hasNew){
         // 该分类下无数据，那么在该分类下建立的页面的parentId就是该分类本身的id
         tpl += '<li class="J_BookmarkNew bookmark-new" data-parentId="'+ dict[key].id
-            +'" >添加新网址</li></ul></section>'
+            +'" >'+ txtNewSite +'</li></ul></section>'
       } else {
         tpl += '</ul></section>'
       }
@@ -163,29 +192,29 @@ export default class Bookmark {
 
   // 注册所有用户事件
   bindEvent() {
-    let self = this
+    let that = this
     let currentNewBookmarkParentId = 0
     $('.J_BookmarkNew').on('click',function (e) {
       let $target = $(e.target)
       currentNewBookmarkParentId = $target.attr('data-parentId')
 
-      self.showAddBookmarkPop()
+      that.showAddBookmarkPop()
     })
 
     $('.J_BookmarkEdit').on('click', function (e) {
         let $father = $(e.target).parent()
-        self.showAddBookmarkPop($father.attr('data-id'),$father.attr('data-title'),$father.attr('data-url'))
+        that.showAddBookmarkPop($father.attr('data-id'),$father.attr('data-title'),$father.attr('data-url'))
     })
 
     $('.J_SubmitAddBookmark').on('click',function (e) {
       let title = $('#J_AddBookmarkPop').find('input[name=title]').val()
       let url = $('#J_AddBookmarkPop').find('input[name=url]').val()
       if(!title.length){
-        $('#J_AddBookmarkPop').find('.tips').text('请输入标题')
+        $('#J_AddBookmarkPop').find('.tips').html(that.i18n.errTitle)
         return
       }
       if(!/(http|https):\/\/.+/g.test(url)){
-        $('#J_AddBookmarkPop').find('.tips').text('请输入正确地url,以http://或者https://开头')
+        $('#J_AddBookmarkPop').find('.tips').html(that.i18n.errUrl)
         return
       }
 
@@ -194,15 +223,12 @@ export default class Bookmark {
           title: title,
           url: url
       }, function(e){
-          console.log(e)
           location.reload()
-          // $('#J_AddBookmarkPop').removeClass('show')
       });
     })
 
     $('.J_DeleteAddBookmark').on('click',function (e) {
       chrome.bookmarks.remove($('.J_DeleteAddBookmark').attr('data-id'), function(e){
-          console.log(e)
           location.reload()
       });
     })
@@ -211,11 +237,11 @@ export default class Bookmark {
       let title = $('#J_AddBookmarkPop').find('input[name=title]').val()
       let url = $('#J_AddBookmarkPop').find('input[name=url]').val()
       if(!title.length){
-        $('#J_AddBookmarkPop').find('.tips').text('请输入标题')
+        $('#J_AddBookmarkPop').find('.tips').html(that.i18n.errTitle)
         return
       }
       if(!/(http|https):\/\/.+/g.test(url)){
-        $('#J_AddBookmarkPop').find('.tips').text('请输入正确地url,以http://或者https://开头')
+        $('#J_AddBookmarkPop').find('.tips').html(that.i18n.errUrl)
         return
       }
 
@@ -223,9 +249,7 @@ export default class Bookmark {
           title: title,
           url: url
       }, function(e){
-          console.log(e)
           location.reload()
-          // $('#J_AddBookmarkPop').removeClass('show')
       });
     })
 
