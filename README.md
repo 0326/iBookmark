@@ -1,6 +1,5 @@
 <img width="400" src="https://lh3.googleusercontent.com/_oj_6Y4K4cjpguig23UpstgNdLh6qUvWfcS3LBE73U6p6f8FRr_QuqTIEWmGzq5MpRevAwzF=s1280-h800-e365-rw"></img>
 
-
 # iBookmark
 Chrome extension for manage bookmarks 打造Chrome最佳书签管理插件
 
