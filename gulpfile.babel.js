@@ -15,45 +15,45 @@ import less from 'gulp-less'
 import concat from 'gulp-concat'
 import rename from 'gulp-rename'
 
-gulp.task('scripts',() => {
+gulp.task('scripts', () => {
   return browserify("js/index.js")
     .transform("babelify")
     .bundle()
     .pipe(source("index.js"))
     .pipe(gulp.dest("./build/js"))
-    
+
 })
 
-gulp.task('build',() => {
+gulp.task('build', () => {
   gulp.src('./build/js/index.js')
-        .pipe(rename({
-          'suffix':'-min'
-        }))
-        .pipe(uglify())
-        .pipe(gulp.dest('./build/js'))
+    .pipe(rename({
+      'suffix': '-min'
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'))
 })
 
-gulp.task('css',() => {
-    gulp.src('css/*.less')
-        .pipe(less())
-        .pipe(gulp.dest('./build/css/'))
-        .pipe(minifyCss())
-        .pipe(rename({
-          'suffix':'-min'
-        }))
-        .pipe(gulp.dest('./build/css/'))
+gulp.task('css', () => {
+  gulp.src('css/*.less')
+    .pipe(less())
+    .pipe(gulp.dest('./build/css/'))
+    .pipe(minifyCss())
+    .pipe(rename({
+      'suffix': '-min'
+    }))
+    .pipe(gulp.dest('./build/css/'))
 })
 
-gulp.task('img',() => {
-    gulp.src('img/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('./build/img'))
+gulp.task('img', () => {
+  gulp.src('img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./build/img'))
 })
 
 
 
-gulp.task('default',() => {
-    gulp.watch('css/*.less', ['css'])
-    gulp.watch('js/*.js', ['scripts'])
-    gulp.watch('img/*.png', ['img'])
+gulp.task('default', () => {
+  gulp.watch('css/*.less', ['css'])
+  gulp.watch('js/*.js', ['scripts'])
+  gulp.watch('img/*.png', ['img'])
 })

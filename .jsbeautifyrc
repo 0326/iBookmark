@@ -1,0 +1,11 @@
+{
+  "indent_size": 2,
+  "indent_char": " ",
+  "beautify.onSave": true,
+  "beautify.onSaveIgnore": [
+    "**/*+(.|_|-)min.*"
+  ],
+  "css": {
+    "indent_size": 2
+  }
+}

@@ -1,27 +1,27 @@
 {
-    "version": "0.0.1",
-    "manifest_version": 2,
-    "name": "__MSG_appName__",
-    "description": "__MSG_appDesc__",
-    "default_locale": "en",
-    "icons": {
-        "16": "build/img/icon16.png",
-        "48": "build/img/icon48.png",
-        "128": "build/img/icon128.png"
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "icons": {
+    "16": "build/img/icon16.png",
+    "48": "build/img/icon48.png",
+    "128": "build/img/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "build/img/icon19.png",
+      "38": "build/img/icon38.png"
     },
-    "browser_action": {
-        "default_icon": {
-            "19": "build/img/icon19.png",
-            "38": "build/img/icon38.png"
-        },
-        "default_title": "iBookmark",
-        "default_popup": "index.html"
-    },
-    "options_page": "options.html",
-    "permissions": [
-        "bookmarks",
-        "http://*/",
-        "chrome://favicon/",
-        "storage"
-    ]
+    "default_title": "iBookmark",
+    "default_popup": "index.html"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "bookmarks",
+    "http://*/",
+    "chrome://favicon/",
+    "storage"
+  ]
 }
