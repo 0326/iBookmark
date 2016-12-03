@@ -14,10 +14,15 @@ export default class Bookmark {
       that.renderBookmarks($('#J_BookmarkRecent'), obj)
     })
 
+    // 获取书签数据
     chrome.bookmarks.getTree(function(tree) {
-      that.recursiveTree(tree[0], '')
-      that.renderBookmarks($('#J_BookmarkCtr'), that.bookmarkDict, true)
-      that.bindEvent()
+      // 获取用户配置
+      chrome.storage.sync.get('hasNewBookmarkBtn',(obj)=>{
+        let hasNew = obj.hasNewBookmarkBtn === false ? false : true
+        that.recursiveTree(tree[0], '')
+        that.renderBookmarks($('#J_BookmarkCtr'), that.bookmarkDict, hasNew)
+        that.bindEvent()
+      })
     })
   }
 

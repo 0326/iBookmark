@@ -1,6 +1,6 @@
 {
   "name": "ibookmark",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "the best bookmarks for chrome extension",
   "main": "index.js",
   "scripts": {

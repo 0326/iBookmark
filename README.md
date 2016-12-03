@@ -5,7 +5,26 @@ Chrome extension for manage bookmarks 打造Chrome最佳书签管理插件
 
 下载地址：https://chrome.google.com/webstore/detail/ibookmark/fnfchnalfnjbjbfeccpophocngdgapad
 
-Wiki: https://github.com/0326/iBookmark/wiki
+Wiki文档: https://github.com/0326/iBookmark/wiki
+
+## 快速上手
+先clone项目启动watch：
+```shell
+git clone git@github.com:0326/iBookmark.git
+cd iBookmark
+# install devDependencies
+npm i 
+# start watch
+gulp   
+```
+然后chrome://extensions/ => 加载已解压 扩展程序 => 加载iBookmark文件夹：
+
+注意插件ID信息，浏览器访问：
+chrome-extension://{{插件ID}}/index.html
+
+编码完成后把`index.html`,`manifest.json`,`options.html`,`_locales/`,`build/`以及`lib`打包成zip即可上传应用市场。
+
+
 
 ## 已完成功能
 - 所有书签分组展示
@@ -25,3 +44,7 @@ Wiki: https://github.com/0326/iBookmark/wiki
 
 ## 协议
 MIT.
+
+## 更新日志
+
+0.0.2版本： 新增配置功能，是否在每个分类下展示添加网址链接按钮

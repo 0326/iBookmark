@@ -21,11 +21,19 @@ gulp.task('scripts', () => {
     .bundle()
     .pipe(source("index.js"))
     .pipe(gulp.dest("./build/js"))
+})
+
+gulp.task('scripts-opt', () => {
+  return browserify("js/options.js")
+    .transform("babelify")
+    .bundle()
+    .pipe(source("options.js"))
+    .pipe(gulp.dest("./build/js"))
 
 })
 
-gulp.task('build', () => {
-  gulp.src('./build/js/index.js')
+gulp.task('build', ['scripts','scripts-opt'],() => {
+  gulp.src(['./build/js/index.js','./build/js/options.js'])
     .pipe(rename({
       'suffix': '-min'
     }))
@@ -54,6 +62,6 @@ gulp.task('img', () => {
 
 gulp.task('default', () => {
   gulp.watch('css/*.less', ['css'])
-  gulp.watch('js/*.js', ['scripts'])
+  gulp.watch('js/*.js', ['scripts','scripts-opt'])
   gulp.watch('img/*.png', ['img'])
 })
