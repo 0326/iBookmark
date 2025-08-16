@@ -1,27 +1,40 @@
 {
-  "version": "0.0.2",
-  "manifest_version": 2,
-  "name": "__MSG_appName__",
-  "description": "__MSG_appDesc__",
-  "default_locale": "en",
-  "icons": {
-    "16": "build/img/icon16.png",
-    "48": "build/img/icon48.png",
-    "128": "build/img/icon128.png"
-  },
-  "browser_action": {
-    "default_icon": {
-      "19": "build/img/icon19.png",
-      "38": "build/img/icon38.png"
+    // Comments are accepted in the manifest, even though it is JSON.
+    "manifest_version": 3,
+    "name": "__MSG_appName__",
+    "description": "__MSG_appDesc__",
+    "default_locale": "en",
+    "version": "0.0.4",
+    "icons": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
     },
-    "default_title": "iBookmark",
-    "default_popup": "index.html"
-  },
-  "options_page": "options.html",
-  "permissions": [
-    "bookmarks",
-    "http://*/",
-    "chrome://favicon/",
-    "storage"
-  ]
+    "options_page": "settings/settings.html",
+    "action": {
+        "default_title": "iBookmark 收藏夹",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "bookmarks",
+        "favicon",
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "web_accessible_resources": [
+    {
+      "resources": ["_favicon/*"],
+      "matches": ["<all_urls>"],
+      "extension_ids": ["*"]
+    }
+  ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [{
+        "js": ["foreground.js"],
+        "matches": ["https://github.com/*"]
+    }]
 }

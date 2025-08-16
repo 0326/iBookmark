@@ -1,4 +1,11 @@
-export default class Bookmark {
+function faviconURL(u) {
+  const url = new URL(chrome.runtime.getURL("/_favicon/"));
+  url.searchParams.set("pageUrl", u);
+  url.searchParams.set("size", "32");
+  return url.toString();
+}
+
+class Bookmark {
   constructor() {
     let that = this
 
@@ -168,7 +175,7 @@ export default class Bookmark {
       tpl += '<section><h2>' + key + '</h2><ul class="clearfix">'
       if (dict[key].length) {
         dict[key].forEach(function(item) {
-          tpl += '<li data-id="' + item.id + '" data-parentId="' + item.parentId + '" data-index="' + item.index + '" data-title="' + item.title + '" data-url="' + item.url + '"' + '><i class="J_BookmarkEdit" style="background-image:url(chrome://favicon/' + item.url + ')"></i><a target="_blank" class="bm-item" href="' + item.url + '" alt="' + item.url + '">' + item.title + '</a></li>'
+          tpl += '<li data-id="' + item.id + '" data-parentId="' + item.parentId + '" data-index="' + item.index + '" data-title="' + item.title + '" data-url="' + item.url + '"' + '><i class="J_BookmarkEdit" style="background-image:url(' + faviconURL(item.url) + ')"></i><a target="_blank" class="bm-item" href="' + item.url + '" alt="' + item.url + '">' + item.title + '</a></li>'
         })
 
         if (hasNew) {
@@ -272,6 +279,6 @@ export default class Bookmark {
       $('#J_AddBookmarkPop').find('input[name=url]').val('')
     }
   }
-
-
 }
+
+new Bookmark()
