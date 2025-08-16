@@ -1,38 +1,14 @@
 {
-  "appName": {
-    "message": "iBookmark"
-  },
-  "appDesc": {
-    "message": "the best bookmark manager in Chrome"
-  },
-  "extErrTitle": {
-    "message":"Title Required"
-  },
-  "extErrUrl": {
-    "message":"Url Format Error<br>Please Start With 'http://' or 'https://'"
-  },
-  "extBtnCancel": {
-    "message":"Cancel"
-  },
-  "extBtnDelete": {
-    "message":"Delete"
-  },
-  "extBtnUpdate": {
-    "message":"Update"
-  },
-  "extBtnSubmit": {
-    "message":"Submit"
-  },
-  "extTitleSearchResult": {
-    "message":"Search Result"
-  },
-  "extTxtNewSite": {
-    "message":"Add New Site"
-  },
-  "extTitleNewest": {
-    "message":"The Newest"
-  },
-  "extTitleViews": {
-    "message":"The Most Views"
-  }
+  "appName": { "message": "iBookmark" },
+  "appDesc": { "message": "the best bookmark manager in Chrome" },
+  "extErrTitle": { "message": "Title Required" },
+  "extErrUrl": { "message": "Url Format Error<br>Please Start With 'http://' or 'https://'" },
+  "extBtnCancel": { "message": "Cancel" },
+  "extBtnDelete": { "message": "Delete" },
+  "extBtnUpdate": { "message": "Update" },
+  "extBtnSubmit": { "message": "Submit" },
+  "extTitleSearchResult": { "message": "Search Result" },
+  "extTxtNewSite": { "message": "Add New Site" },
+  "extTitleNewest": { "message": "The Newest" },
+  "extTitleViews": { "message": "The Most Views" }
 }

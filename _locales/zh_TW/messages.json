@@ -1,38 +1,14 @@
 {
-  "appName": {
-    "message": "iBookmark 收藏夹"
-  },
-  "appDesc": {
-    "message": "做最好用的Chrome收藏夹"
-  },
-  "extErrTitle": {
-    "message":"请输入标题"
-  },
-  "extErrUrl": {
-    "message":"地址格式错误<br>请以http://或者https://开头"
-  },
-  "extBtnCancel": {
-    "message":"取消"
-  },
-  "extBtnDelete": {
-    "message":"删除"
-  },
-  "extBtnUpdate": {
-    "message":"修改"
-  },
-  "extBtnSubmit": {
-    "message":"提交"
-  },
-  "extTitleSearchResult": {
-    "message":"搜索结果"
-  },
-  "extTxtNewSite": {
-    "message":"添加新网址"
-  },
-  "extTitleNewest": {
-    "message":"最新添加"
-  },
-  "extTitleViews": {
-    "message":"最常访问"
-  }
+  "appName": { "message": "iBookmark 收藏夾" },
+  "appDesc": { "message": "做最好用的Chrome收藏夾" },
+  "extErrTitle": { "message": "請輸入標題" },
+  "extErrUrl": { "message": "地址格式錯誤<br>請以http://或https://開頭" },
+  "extBtnCancel": { "message": "取消" },
+  "extBtnDelete": { "message": "刪除" },
+  "extBtnUpdate": { "message": "修改" },
+  "extBtnSubmit": { "message": "提交" },
+  "extTitleSearchResult": { "message": "搜尋結果" },
+  "extTxtNewSite": { "message": "新增網址" },
+  "extTitleNewest": { "message": "最新新增" },
+  "extTitleViews": { "message": "最常訪問" }
 }

@@ -1,38 +1,14 @@
 {
-  "appName": {
-    "message": "iBookmark"
-  },
-  "appDesc": {
-    "message": "the best bookmark manager in Chrome"
-  },
-  "extErrTitle": {
-    "message":"Title Required"
-  },
-  "extErrUrl": {
-    "message":"Url Format Error<br>Please Start With 'http://' or 'https://'"
-  },
-  "extBtnCancel": {
-    "message":"Cancel"
-  },
-  "extBtnDelete": {
-    "message":"Delete"
-  },
-  "extBtnUpdate": {
-    "message":"Update"
-  },
-  "extBtnSubmit": {
-    "message":"Submit"
-  },
-  "extTitleSearchResult": {
-    "message":"Search Result"
-  },
-  "extTxtNewSite": {
-    "message":"Add New Site"
-  },
-  "extTitleNewest": {
-    "message":"The Newest"
-  },
-  "extTitleViews": {
-    "message":"The Most Views"
-  }
+  "appName": { "message": "iBookmark" },
+  "appDesc": { "message": "Chrome에서 최고의 북마크 관리자" },
+  "extErrTitle": { "message": "제목을 입력하세요" },
+  "extErrUrl": { "message": "URL 형식 오류<br>'http://' 또는 'https://'로 시작하세요" },
+  "extBtnCancel": { "message": "취소" },
+  "extBtnDelete": { "message": "삭제" },
+  "extBtnUpdate": { "message": "수정" },
+  "extBtnSubmit": { "message": "제출" },
+  "extTitleSearchResult": { "message": "검색 결과" },
+  "extTxtNewSite": { "message": "새 사이트 추가" },
+  "extTitleNewest": { "message": "최신 추가" },
+  "extTitleViews": { "message": "가장 많이 본" }
 }

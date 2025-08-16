@@ -1,7 +1,7 @@
 <img width="400" src="https://lh3.googleusercontent.com/_oj_6Y4K4cjpguig23UpstgNdLh6qUvWfcS3LBE73U6p6f8FRr_QuqTIEWmGzq5MpRevAwzF=s1280-h800-e365-rw"></img>
 
 # iBookmark
-Chrome extension for manage bookmarks 打造Chrome最佳书签管理插件
+Chrome extension for manage bookmarks 一款简单好用的 Chrome 书签管理插件，项目工程非常简单，可供学习参考。
 
 下载地址：https://chrome.google.com/webstore/detail/ibookmark/fnfchnalfnjbjbfeccpophocngdgapad
 
@@ -20,9 +20,9 @@ gulp
 然后chrome://extensions/ => 加载已解压 扩展程序 => 加载iBookmark文件夹：
 
 注意插件ID信息，浏览器访问：
-chrome-extension://{{插件ID}}/index.html
+chrome-extension://{{插件ID}}/popup/popup.html
 
-编码完成后把`index.html`,`manifest.json`,`options.html`,`_locales/`,`build/`以及`lib`打包成zip即可上传应用市场。
+编码完成后把项目打包成zip即可上传应用市场。
 
 
 
@@ -33,6 +33,7 @@ chrome-extension://{{插件ID}}/index.html
 - 删除书签
 - 搜索书签功能
 - 统计书签使用频率，新增常用书签一栏
+- 支持 manifest.json V3
 
 ## 待完成功能
 - 新增书签类别
@@ -46,5 +47,5 @@ chrome-extension://{{插件ID}}/index.html
 MIT.
 
 ## 更新日志
-
+0.0.4版本： 支持 manifest V3 协议
 0.0.2版本： 新增配置功能，是否在每个分类下展示添加网址链接按钮
