@@ -17,7 +17,7 @@ const SearchItem = ({ item }: SearchItemProps) => {
             <img src={getFaviconURL(item.url || '')} alt="" className="w-4 h-4" />
         </div>
         <div className="flex flex-col gap-0 items-start justify-center">
-            <h4 className="text-xs text-slate-700 ">{item.title}</h4>
+            <h4 className="text-xs text-slate-700 ">Search Item Name</h4>
         </div>
     </a>
   )

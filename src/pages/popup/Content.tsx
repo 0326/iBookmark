@@ -134,7 +134,7 @@ const Content: React.FC<ContentProps> = ({ dataSource, refresh }) => {
             <section className="w-full divide-y rounded divide-slate-200 ">
                 <details className="p-4 group border-b-1 border-dashed border-emerald-200" open>
                     <summary className="relative cursor-pointer list-none pr-8 font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900  [&::-webkit-details-marker]:hidden">
-                        📚 {dataSource.title === item.title ? `${dataSource.title}` : `${dataSource.title} / ${item.title}`}
+                        📚 Bookmark Group Name
                         <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="absolute right-0 w-4 h-4 transition duration-300 top-1 shrink-0 stroke-slate-700 group-open:rotate-45"
@@ -157,7 +157,7 @@ const Content: React.FC<ContentProps> = ({ dataSource, refresh }) => {
                             <div key={bookmark.id} className="truncate flex items-center">
                                 <img src={bookmark.icon} onClick={() => onBookmarkClick(bookmark)} alt="" className="inline-block w-4 h-4 mr-2 cursor-pointer" />
                                 <a href={bookmark.url} target='_blank' className="hover:underline">
-                                    {bookmark.title}
+                                    Bookmark Name
                                 </a>
                             </div>
                         ))}

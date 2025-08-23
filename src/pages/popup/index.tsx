@@ -41,7 +41,7 @@ export default function TabsSmBasic() {
                 tabIndex={currentTab === index ? 0 : -1}
                 onClick={() => setCurrentTab(index)}
               >
-                <span>{tab.title}</span>
+                <span>Bookmark Category</span>
               </button>
             </li>
           ))}
