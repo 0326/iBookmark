@@ -3,16 +3,16 @@
     "name": "__MSG_appName__",
     "description": "__MSG_appDesc__",
     "default_locale": "en",
-    "version": "0.0.4",
+    "version": "1.0.0",
     "icons": {
         "16": "img/icon16.png",
         "48": "img/icon48.png",
         "128": "img/icon128.png"
     },
-    "options_page": "settings/settings.html",
+    // "options_page": "settings/settings.html",
     "action": {
-        "default_title": "iBookmark 收藏夹",
-        "default_popup": "popup/popup.html"
+        "default_title": "__MSG_appName__",
+        "default_popup": "popup/index.html"
     },
     "permissions": [
         "bookmarks",
@@ -28,12 +28,12 @@
       "matches": ["<all_urls>"],
       "extension_ids": ["*"]
     }
-  ],
-    "background": {
-        "service_worker": "service-worker.js"
-    },
-    "content_scripts": [{
-        "js": ["foreground.js"],
-        "matches": ["https://github.com/*"]
-    }]
+  ]
+  // "background": {
+  //     "service_worker": "service-worker.js"
+  // },
+  // "content_scripts": [{
+  //     "js": ["main.js"],
+  //     "matches": ["<all_urls>"]
+  // }]
 }
