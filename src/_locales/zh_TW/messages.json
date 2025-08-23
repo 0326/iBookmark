@@ -1,14 +1,19 @@
 {
-  "appName": { "message": "iBookmark 收藏夾" },
-  "appDesc": { "message": "做最好用的Chrome收藏夾" },
-  "extErrTitle": { "message": "請輸入標題" },
-  "extErrUrl": { "message": "地址格式錯誤<br>請以http://或https://開頭" },
-  "extBtnCancel": { "message": "取消" },
-  "extBtnDelete": { "message": "刪除" },
-  "extBtnUpdate": { "message": "修改" },
-  "extBtnSubmit": { "message": "提交" },
-  "extTitleSearchResult": { "message": "搜尋結果" },
-  "extTxtNewSite": { "message": "新增網址" },
-  "extTitleNewest": { "message": "最新新增" },
-  "extTitleViews": { "message": "最常訪問" }
+  "appName": {
+  "message": "iBookmark - 收藏夾, 書籤, Chrome書籤管理"
+},
+"appDesc": {
+  "message": "一款高效率的Chrome書籤快速瀏覽、搜尋和管理工具"
+},
+  "searchPlaceholder": { "message": "搜尋書籤..." },
+  "searchTips": { "message": "請輸入關鍵字搜尋" },
+  "noResultsFound": { "message": "未找到結果" },
+  "editBookmark": { "message": "編輯書籤" },
+  "name": { "message": "名稱" },
+  "namePlaceholder": { "message": "請輸入名稱" },
+  "url": { "message": "網址" },
+  "urlPlaceholder": { "message": "請輸入網址" },
+  "confirm": { "message": "確定" },
+  "cancel": { "message": "取消" },
+  "delete": { "message": "刪除" }
 }

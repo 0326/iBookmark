@@ -7,6 +7,7 @@
     "start": "vite",
     "build": "tsc -b && vite build",
     "watch-build": "chokidar \"src/**/*\" -c \"vite build\"",
+    "zip": "cd build && zip -r ../build.zip .",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

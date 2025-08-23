@@ -1,38 +1,41 @@
 {
   "appName": {
-    "message": "iBookmark 收藏夹"
+    "message": "iBookmark - 收藏夹, 书签, Chrome书签管理"
   },
   "appDesc": {
-    "message": "做最好用的Chrome收藏夹"
+    "message": "一款Chrome书签快速浏览、搜索和管理的高效率神器"
   },
-  "extErrTitle": {
-    "message":"请输入标题"
+  "searchPlaceholder": {
+    "message":"搜索书签..."
   },
-  "extErrUrl": {
-    "message":"地址格式错误<br>请以http://或者https://开头"
+  "searchTips": {
+    "message": "请输入关键字搜索"
   },
-  "extBtnCancel": {
-    "message":"取消"
+  "noResultsFound": {
+    "message": "未找到结果"
   },
-  "extBtnDelete": {
-    "message":"删除"
+  "editBookmark": {
+    "message": "编辑书签"
   },
-  "extBtnUpdate": {
-    "message":"修改"
+  "name": {
+    "message": "名称"
   },
-  "extBtnSubmit": {
-    "message":"提交"
+  "namePlaceholder": {
+    "message": "请输入名称"
   },
-  "extTitleSearchResult": {
-    "message":"搜索结果"
+  "url": {
+    "message": "网址"
   },
-  "extTxtNewSite": {
-    "message":"添加新网址"
+  "urlPlaceholder": {
+    "message": "请输入网址"
   },
-  "extTitleNewest": {
-    "message":"最新添加"
+  "confirm": {
+    "message": "确定"
   },
-  "extTitleViews": {
-    "message":"最常访问"
+  "cancel": {
+    "message": "取消"
+  },
+  "delete": {
+    "message": "删除"
   }
 }

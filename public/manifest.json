@@ -11,7 +11,7 @@
     },
     // "options_page": "settings/settings.html",
     "action": {
-        "default_title": "__MSG_appName__",
+        "default_title": "iBookmark",
         "default_popup": "popup/index.html"
     },
     "permissions": [

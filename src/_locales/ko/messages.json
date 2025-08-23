@@ -1,14 +1,19 @@
 {
-  "appName": { "message": "iBookmark" },
-  "appDesc": { "message": "Chrome에서 최고의 북마크 관리자" },
-  "extErrTitle": { "message": "제목을 입력하세요" },
-  "extErrUrl": { "message": "URL 형식 오류<br>'http://' 또는 'https://'로 시작하세요" },
-  "extBtnCancel": { "message": "취소" },
-  "extBtnDelete": { "message": "삭제" },
-  "extBtnUpdate": { "message": "수정" },
-  "extBtnSubmit": { "message": "제출" },
-  "extTitleSearchResult": { "message": "검색 결과" },
-  "extTxtNewSite": { "message": "새 사이트 추가" },
-  "extTitleNewest": { "message": "최신 추가" },
-  "extTitleViews": { "message": "가장 많이 본" }
+  "appName": {
+  "message": "iBookmark - 북마크, Chrome 북마크 관리자"
+},
+"appDesc": {
+  "message": "Chrome 북마크를 빠르게 탐색, 검색, 관리하는 고효율 도구"
+},
+  "searchPlaceholder": { "message": "북마크 검색..." },
+  "searchTips": { "message": "검색할 키워드를 입력하세요" },
+  "noResultsFound": { "message": "결과를 찾을 수 없습니다" },
+  "editBookmark": { "message": "북마크 편집" },
+  "name": { "message": "이름" },
+  "namePlaceholder": { "message": "이름을 입력하세요" },
+  "url": { "message": "URL" },
+  "urlPlaceholder": { "message": "URL을 입력하세요" },
+  "confirm": { "message": "확인" },
+  "cancel": { "message": "취소" },
+  "delete": { "message": "삭제" }
 }

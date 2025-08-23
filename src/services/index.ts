@@ -22,6 +22,12 @@ export async function removeBookmark(bookmarkId: string) {
     return rs;
 }
 
+export function i18n(key: string) {
+    const rs = chrome.i18n.getMessage(key);
+    console.log('i18n', { key, rs });
+    return rs;
+}
+
 export function getFaviconURL(u: string) {
     const url = new URL(chrome.runtime.getURL("/_favicon/"));
     url.searchParams.set("pageUrl", u || 'https://developer.chrome.com');

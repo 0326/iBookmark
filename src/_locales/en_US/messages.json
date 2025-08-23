@@ -1,14 +1,19 @@
 {
-  "appName": { "message": "iBookmark" },
-  "appDesc": { "message": "the best bookmark manager in Chrome" },
-  "extErrTitle": { "message": "Title Required" },
-  "extErrUrl": { "message": "Url Format Error<br>Please Start With 'http://' or 'https://'" },
-  "extBtnCancel": { "message": "Cancel" },
-  "extBtnDelete": { "message": "Delete" },
-  "extBtnUpdate": { "message": "Update" },
-  "extBtnSubmit": { "message": "Submit" },
-  "extTitleSearchResult": { "message": "Search Result" },
-  "extTxtNewSite": { "message": "Add New Site" },
-  "extTitleNewest": { "message": "The Newest" },
-  "extTitleViews": { "message": "The Most Views" }
+  "appName": {
+  "message": "iBookmark - Bookmarks, Chrome Bookmark Manager"
+},
+"appDesc": {
+  "message": "A high-efficiency tool for quick browsing, searching, and managing Chrome bookmarks"
+},
+  "searchPlaceholder": { "message": "Search bookmarks..." },
+  "searchTips": { "message": "Please enter keywords to search" },
+  "noResultsFound": { "message": "No results found" },
+  "editBookmark": { "message": "Edit bookmark" },
+  "name": { "message": "Name" },
+  "namePlaceholder": { "message": "Please enter a name" },
+  "url": { "message": "URL" },
+  "urlPlaceholder": { "message": "Please enter a URL" },
+  "confirm": { "message": "Confirm" },
+  "cancel": { "message": "Cancel" },
+  "delete": { "message": "Delete" }
 }

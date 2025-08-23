@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Modal from '../../components/Modal';
-import { getFaviconURL, updateBookmark, removeBookmark } from '../../services'
+import { getFaviconURL, updateBookmark, removeBookmark, i18n } from '../../services'
 import TextInput from '../../components/TextInput';
 
 interface ContentProps {
@@ -104,26 +104,28 @@ const Content: React.FC<ContentProps> = ({ dataSource, refresh }) => {
         <>
         <Modal
             visible={showModal}
-            title="修改书签"
+            title={i18n("editBookmark")}
             content={(
                 <div>
                     <TextInput
-                        name={'名称'}
-                        placeholder='请输入名称'
+                        name={i18n("name")}
+                        placeholder={i18n("namePlaceholder")}
                         value={selectedBookmark?.title}
+                        // @ts-ignore
                         onChange={(value) => setSelectedBookmark({ ...selectedBookmark, title: value })}
                     />
                     <TextInput
-                        name={'网址'}
-                        placeholder='请输入网址'
+                        name={i18n("url")}
+                        placeholder={i18n("urlPlaceholder")}
                         value={selectedBookmark?.url}
+                        // @ts-ignore
                         onChange={(value) => setSelectedBookmark({ ...selectedBookmark, url: value })}
                     />
                 </div>
             )}
-            okText='确定'
-            cancelText='取消'
-            delText="删除"
+            okText={i18n("confirm")}
+            cancelText={i18n("cancel")}
+            delText={i18n("delete")}
             onOk={handleModalOk}
             onDelete={handleModalDelete}
             onClose={() => setShowModal(false)}

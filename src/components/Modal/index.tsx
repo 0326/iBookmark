@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, ReactNode } from "react"
+import { useEffect, ReactNode } from "react"
 import ReactDOM from "react-dom"
 
 interface ModalProps {
@@ -27,7 +27,7 @@ export default function Modal({ visible, title, delText, onDelete, content, onOk
         const modal = document.querySelector("#modal") // select the modal by it's id
 
         const firstFocusableElement =
-          modal!.querySelectorAll(focusableElements)[0] // get first element to be focused inside modal
+          modal!.querySelectorAll(focusableElements)[0] as any // get first element to be focused inside modal
 
         firstFocusableElement.focus()
       } else {

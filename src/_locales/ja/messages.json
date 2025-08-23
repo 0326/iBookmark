@@ -1,14 +1,19 @@
 {
-  "appName": { "message": "iBookmark" },
-  "appDesc": { "message": "Chromeで最高のブックマークマネージャー" },
-  "extErrTitle": { "message": "タイトルを入力してください" },
-  "extErrUrl": { "message": "URL形式エラー<br>「http://」または「https://」で始めてください" },
-  "extBtnCancel": { "message": "キャンセル" },
-  "extBtnDelete": { "message": "削除" },
-  "extBtnUpdate": { "message": "更新" },
-  "extBtnSubmit": { "message": "送信" },
-  "extTitleSearchResult": { "message": "検索結果" },
-  "extTxtNewSite": { "message": "新しいサイトを追加" },
-  "extTitleNewest": { "message": "最新の追加" },
-  "extTitleViews": { "message": "最も閲覧された" }
+  "appName": {
+  "message": "iBookmark - ブックマーク、Chromeブックマーク管理"
+},
+"appDesc": {
+  "message": "Chromeのブックマークを素早く閲覧・検索・管理できる高効率ツール"
+},
+  "searchPlaceholder": { "message": "ブックマークを検索..." },
+  "searchTips": { "message": "キーワードを入力して検索してください" },
+  "noResultsFound": { "message": "結果が見つかりません" },
+  "editBookmark": { "message": "ブックマークを編集" },
+  "name": { "message": "名前" },
+  "namePlaceholder": { "message": "名前を入力してください" },
+  "url": { "message": "URL" },
+  "urlPlaceholder": { "message": "URLを入力してください" },
+  "confirm": { "message": "確認" },
+  "cancel": { "message": "キャンセル" },
+  "delete": { "message": "削除" }
 }

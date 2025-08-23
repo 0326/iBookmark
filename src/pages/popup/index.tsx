@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react"
 import Content from './Content'
 import Search from './Search'
-import * as api from '../../services'
+import { getBookmarks, i18n } from '../../services'
 
 export default function TabsSmBasic() {
   const [currentTab, setCurrentTab] = useState(0)
@@ -10,7 +10,7 @@ export default function TabsSmBasic() {
   const wrapperRef = useRef<any>(null)
 
   const refresh = useCallback(async () => {
-    const bookmarks = await api.getBookmarks();
+    const bookmarks = await getBookmarks();
     setBookmarks(bookmarks!);
   }, [])
 
@@ -45,7 +45,7 @@ export default function TabsSmBasic() {
               </button>
             </li>
           ))}
-          <Search />
+          <Search placeholder={i18n("searchPlaceholder")} />
         </ul>
         <div className="pt-8 pb-4 text-sm">
           <Content dataSource={bookmarks[currentTab]} refresh={refresh} />

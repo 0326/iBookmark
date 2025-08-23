@@ -1,8 +1,9 @@
 import { useCallback, useRef, useState } from "react"
-import * as api from '../../services'
+import { i18n, searchBookmarks, getFaviconURL } from '../../services'
 
 interface SearchProps {
     className?: string;
+    placeholder?: string;
 }
 
 interface SearchItemProps {
@@ -13,7 +14,7 @@ const SearchItem = ({ item }: SearchItemProps) => {
   return (
     <a href={item.url} target="_blank" className="flex items-center gap-2 px-4 py-2 truncate">
         <div className="flex w-4 h-4 items-center self-center text-emerald-500">
-            <img src={api.getFaviconURL(item.url || '')} alt="" className="w-4 h-4" />
+            <img src={getFaviconURL(item.url || '')} alt="" className="w-4 h-4" />
         </div>
         <div className="flex flex-col gap-0 items-start justify-center">
             <h4 className="text-xs text-slate-700 ">{item.title}</h4>
@@ -30,7 +31,7 @@ export default function Search(props: SearchProps) {
 
   const onSearch = useCallback(async (q: string) => {
     setInputVal(q)
-    const res = await api.searchBookmarks(q)
+    const res = await searchBookmarks(q)
     console.log("Searching for:", res)
     setSearchResults(res)
   }, [])
@@ -54,7 +55,7 @@ export default function Search(props: SearchProps) {
             id="id-s01"
             type="search"
             name="id-s01"
-            placeholder="Search bookmarks"
+            placeholder={props.placeholder}
             onChange={onChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setTimeout(() => setIsFocused(false), 100)}
@@ -88,7 +89,9 @@ export default function Search(props: SearchProps) {
             {searchResults.length > 0 ? searchResults.map(item => (
               <SearchItem key={item.id} item={item} />
             )) : (
-              <li className="px-4 py-3 h-100 flex items-center justify-center text-slate-500">{inputVal ? "No results found" : "Start typing to search..."}</li>
+              <li className="px-4 py-3 h-100 flex items-center justify-center text-slate-500">
+                {inputVal ? i18n('noResultsFound') : i18n('searchTips')}
+              </li>
             )}
           </ul>
         )}
